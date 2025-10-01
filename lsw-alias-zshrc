@@ -1,0 +1,33 @@
+# My searches for history
+# up and down arrow to search in histiory after typing - using history plugin
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+
+# My ls aliases
+alias l='ls -lahF --color'
+alias la='ls -lAhF --color'
+alias lla='ls -lAhF --color'
+alias ll='ls -lhF --color'
+alias ls='ls -Fh --color'
+alias lsa='ls -lahF --color'
+alias nah='git reset --hard && git clean -fd'
+alias vbd='lando drush'
+alias dvbd='ddev drush'
+alias landodb='lando db-export backups/curie_mac_$(date +%Y%m%d).gz'
+
+alias gi='git'
+
+cd() { builtin cd "$1" ; echo "" ; pwd ; echo "" ; ls ; echo "" ; }
+
+# Tmux SetPaneName - e.g. spn drupal
+spn() { printf '\033]2;%s\033\\' $1 ; }
+
+set -o vi
+
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/Users/lsw/global_composer_lsw/vendor/bin"
+
+# Stop tabs sharing history
+unsetopt inc_append_history
+unsetopt share_history
+
